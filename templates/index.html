@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Improved Car Price Predictor</title>
+</head>
+<body>
+
+<h1>🚗 Car Price Prediction (Improved Model)</h1>
+
+<form method="POST">
+
+    <label>Production Year:</label>
+    <input type="number" name="year" required><br><br>
+
+    <label>Levy:</label>
+    <input type="number" name="levy" required><br><br>
+
+    <label>Cylinders:</label>
+    <input type="number" name="cylinders" required><br><br>
+
+    <label>Airbags:</label>
+    <input type="number" name="airbags" required><br><br>
+
+    <button type="submit">Predict</button>
+
+</form>
+
+{% if prediction %}
+    <h2>Predicted Price: {{ prediction }}</h2>
+{% endif %}
+
+<h3>Model Performance</h3>
+<p>R²: {{ r2 }}</p>
+<p>RMSE: {{ rmse }}</p>
+
+<img src="{{ url_for('static', filename='plot.png') }}" width="500">
+
+</body>
+</html>
